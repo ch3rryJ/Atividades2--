@@ -1,0 +1,80 @@
+/*atv1*/
+.atv1{
+    background-color: lightblue;
+}
+.parag1{
+    font-size: 20px;
+}
+.parag2{
+    font-size: 2em;
+}
+.parag3{
+    font-size: 3rem;
+}
+.explica{
+    font-size: 20px;
+    color: darkblue;
+}
+
+/*atv2*/
+.atv2{
+    background-color: lightpink;
+}
+.atv2 img {
+    width:300px; 
+    max-width:100%;
+}
+.explica2{
+    font-size: 20px;
+    color: darkmagenta;
+}
+
+/*atv3*/
+.atv3{
+    text-align: center;
+}
+.atv3 img {
+    max-width: 200px; 
+    border-radius: 50%;
+}
+.nome {
+    font-size: 2rem;
+}
+.descricao {
+    font-size: 20px;
+}
+@media (max-width: 600px) {
+    .nome {
+        font-size: 1.5rem;
+    }
+    body {
+        background-color: lightgoldenrodyellow;
+    }
+}
+
+/*atv4*/
+.secao {
+    font-size: 30px;
+    margin: 10px;
+}
+/* Celular */
+@media (max-width: 600px) {
+    .atv4 {
+        flex-direction: column; 
+        background-color: pink;
+    }
+}
+/* Tablet */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .atv4 {
+        display: flex;
+        background-color: lightcyan;
+    }
+}
+/* Desktop */
+@media (min-width: 1025px) {
+    .atv4 {
+        display: flex;
+        background-color: lightcoral;
+    }
+}
