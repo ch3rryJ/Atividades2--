@@ -20,8 +20,10 @@
 .atv2{
     background-color: lightpink;
 }
-.atv2 img {
+.img1 {
     width:300px; 
+}
+.img2{
     max-width:100%;
 }
 .explica2{
