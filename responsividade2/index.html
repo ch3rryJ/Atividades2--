@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+   <style>
+    .oculto {
+      display: none;
+    }
+    #bannerAuto {
+      width: 200px
+    }
+    #lampada {
+      width: 200px
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1.-->
+  <section>
+    <h2>1.</h2>
+    <img id="bannerAuto" src="img/banner1.jpg">
+  </section>
+
+  <!-- 2. -->
+  <section>
+    <h2>2.</h2>
+    <img id="lampada" src="img/apagada.jpg">
+  </section>
+
+  <!-- 3. -->
+  <section>
+    <h1>3.</h1>
+    <button id="botao">Mostrar/Esconder</button><br><br>
+    <img id="foto" src="img/esconde.jpg" width="300" class="oculto">
+  </section>
+
+  <!-- 4. -->
+  <section>
+    <h2>4.</h2>
+    <img id="perfil" src="img/perfil1.jpg" width="300"><br><br>
+    <button id="trocar">Trocar Foto</button>
+  </section>
+
+  <!-- 5.-->
+  <section>
+    <h2>5.</h2>
+    <img id="principal" src="img/foto1.jpg" width="400"><br><br>
+    <img class="mini" src="img/foto1.jpg" width="100">
+    <img class="mini" src="img/foto2.jpg" width="100">
+    <img class="mini" src="img/foto3.jpg" width="150">
+  </section>
+
+  <!-- 6.-->
+  <section>
+    <h2>6.</h2>
+    <img id="banner3" src="img/desktop.jpg" alt="Banner 3 Versões">
+  </section>
+
+  <!-- 7. -->
+  <section>
+    <h2>7.</h2>
+    <img id="carrossel" src="img/carrossel1.jpg" width="400"><br><br>
+    <button id="antes">Anterior</button>
+    <button id="prox">Próxima</button>
+  </section>
+
+  <!-- Scripts-------------------------------------------------------->
+  <script>
+    // 1.
+    const bannerAuto = document.getElementById('bannerAuto')
+    function trocaBannerAuto() {
+      if(window.innerWidth < 600){
+        bannerAuto.src = "img/banner2.jpg"
+      } else {
+        bannerAuto.src = "img/banner1.jpg"
+      }
+    }
+    trocaBannerAuto()
+    window.addEventListener("resize", trocaBannerAuto)
+
+    // 2.
+    const lampada = document.getElementById('lampada')
+    let acesa = false
+    lampada.addEventListener("click", ()=>{
+      if(acesa){
+        lampada.src = "img/apagada.jpg"
+        acesa = false
+      } else {
+        lampada.src = "img/acesa.jpg"
+        acesa = true
+      }
+    })
+
+    // 3.
+   const botao = document.getElementById('botao')
+    const foto = document.getElementById('foto')
+
+    botao.addEventListener("click", ()=>{
+      foto.classList.toggle("oculto")
+    })
+
+    // 4.
+    const perfil = document.getElementById('perfil')
+    const trocar = document.getElementById('trocar')
+    let alterada = false
+    trocar.addEventListener("click", ()=>{
+      if(alterada){
+        perfil.src = "img/perfil1.jpg"
+        alterada = false
+      } else {
+        perfil.src = "img/perfil2.jpg"
+        alterada = true
+      }
+    })
+
+    // 5.
+    const principal = document.getElementById('principal')
+    const mini = document.querySelectorAll('.mini')
+    mini.forEach(img =>{
+      img.addEventListener("click", ()=>{
+        principal.src = img.src
+      })
+    })
+
+    // 6.
+    const banner3 = document.getElementById('banner3')
+    function trocaBanner3(){
+      if(window.innerWidth < 600){
+        banner3.src = "img/mobile.jpg"
+      } else if(window.innerWidth <= 1024){
+        banner3.src = "img/tablet.jpg"
+      } else {
+        banner3.src = "img/desktop.jpg"
+      }
+    }
+    trocaBanner3()
+    window.addEventListener("resize", trocaBanner3)
+
+    // 7.
+    const imagens = ["img/carrossel1.jpg", "img/carrossel2.jpg", "img/carrossel3.jpg"]
+    let indice = 0
+    const carrossel = document.getElementById('carrossel')
+    document.getElementById('prox').addEventListener("click", ()=>{                          
+      indice = (indice + 1) % imagens.length
+      carrossel.src = imagens[indice]
+    })
+    document.getElementById('antes').addEventListener("click", ()=>{
+      indice = (indice - 1 + imagens.length) % imagens.length
+      carrossel.src = imagens[indice]
+    })
+  </script>
+
+</body>
+</html>
